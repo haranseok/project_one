@@ -8,22 +8,30 @@
                 <router-view />
             </v-container>
         </v-main>
+        <div class="f_container" v-if="footerNone !== 'none'">
+            <component :is="getFooter" />
+        </div>
     </div>
 </template>
 
 <script>
 import { defineAsyncComponent } from "vue";
 import Headers from "@/components/header/router";
+import Footers from "@/components/footer/router";
 export default {
   name: 'HomeView',
   data(){
     return {
         headerKey: -1,
+        footerKey: -1,
     }
   },
   computed: {
         getConfigHeaderType() {
             return this.$store.getters.getHeaderType;
+        },
+        getConfigFooterType() {
+            return this.$store.getters.getFooterType;
         },
         getHeader() {
             if (this.headerKey !== -1) {
@@ -31,11 +39,20 @@ export default {
             }
             return "";
         },
+        getFooter() {
+            if(this.footerKey !== -1) {
+                return defineAsyncComponent(Footers[this.footerKey].component);
+            }
+            return "";
+        }
     },
     watch: {
         getConfigHeaderType(val) {
             this.headerKey = val;
         },
+        getConfigFooterType(val) {
+            this.footerKey = val;
+        }
     },
   components: {
   },

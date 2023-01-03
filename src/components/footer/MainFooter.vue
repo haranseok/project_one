@@ -1,22 +1,23 @@
 <template>
-    <div>
-        SUB
-    </div>
+    <footer>
+        <v-container>
+            Footer
+        </v-container>
+    </footer>
 </template>
 
 <script>
 export default {
-    data(){
+    data() {
         return {
 
         }
     },
     created() {
-        this.setHeader(0);
-        this.setFooter(0);
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
 </style>

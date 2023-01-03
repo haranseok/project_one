@@ -16,4 +16,8 @@ const app = createApp(App);
   app.config.globalProperties.$store = Store;
   app.config.globalProperties.setHeader = (type) => {
     Store.dispatch('setHeaderType', type)
+  };
+  app.config.globalProperties.setFooter = (type) => {
+    Store.dispatch('setFooterType', type)
   }
+  
