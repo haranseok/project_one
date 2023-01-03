@@ -1,7 +1,7 @@
 /**
  * plugins/webfontloader.js
  *
- * webfontloader documentation: https://github.com/typekit/webfontloader
+//  * webfontloader documentation: https://github.com/typekit/webfontvue loader
  */
 
 export async function loadFonts () {

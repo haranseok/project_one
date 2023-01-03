@@ -1,6 +1,8 @@
 <template>
     <div>
-        SUB
+        <v-containet>
+            sub
+        </v-containet>
     </div>
 </template>
 
