@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <v-containet>
-            sub
-        </v-containet>
-    </div>
+    <v-containet>
+        sub
+    </v-containet>
 </template>
 
 <script>
