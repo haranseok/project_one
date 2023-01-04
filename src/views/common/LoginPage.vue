@@ -4,34 +4,56 @@
             <p>metakingz admin</p>
             <img :src="img" alt="">
         </div>
-        <v-container class="inputBox">
+        <v-container class="inputBox application--light">
             <v-text-field
+                v-model="login.id"
                 label="id"
                 color="deep-orange"
-                :rules="idrules"
-                hide-datails="auto" />
+                :rules="idrules" />
             <v-text-field
-                label="password"
+                v-model="login.pw"
                 color="deep-orange"
-                :rules="pwrules"
-                hide-details="auto" />
-            <v-btn class="sendBtn">login</v-btn>
+                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                :pwrules="[pwrules.required, pwrules.min]"
+                :type="show ? 'text' : 'password'"
+                label="password"
+                @click:append="show = !show" />
+            <v-btn class="sendBtn" @click="loginSend">login</v-btn>
         </v-container>        
     </v-card>
 </template>
 <script>
 export default {
     data: () => ({
+        show: false,
+        login: {
+            id: '',
+            pw: '',
+        },
+        user: {
+            id: 'admin1234',
+            pw: 'Admin1234!'
+        },
         img: require('@/assets/image/tigerback.png'),
         idrules: [
             value => !!value || '아이디를 입력해주세요.',
-            value => (value && value.length >= 3) || '3자 이상 입력해주세요.'
+            value => (value && value.length >= 6) || '6자 이상 입력해주세요.'
         ],
-        pwrules: [
-            value => !!value || '비밀번호를 입력해주세요.',
-            value => (value && value.length >= 6) || '6자 이상 입렵해주세요.'
-        ]
-    })
+        pwrules: {
+          required: value => !!value || '비밀번호를 입력해주세요.',
+          min: v => v.length >= 8 || '8자 이상 입력해주세요.',
+        },
+    }),
+    created(){
+        this.setHeader(-1)
+    },
+    methods: {
+        loginSend(){
+            if(this.login.id === this.user.id && this.login.pw === this.user.pw){
+                this.$router.push("/home/subview")
+            }
+        }
+    },
 }
 </script>
 
@@ -74,9 +96,5 @@ export default {
         background: #e4552a;
         color: #fff;
     }
-}
-
-@media screen and (max-width: 480px) {
-    
 }
 </style>

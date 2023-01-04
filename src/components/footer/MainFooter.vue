@@ -1,7 +1,7 @@
 <template>
-    <v-footer>
+    <v-container class="f_box mx-auto">
         footer
-    </v-footer>
+    </v-container>
 </template>
 
 <script>
@@ -17,5 +17,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

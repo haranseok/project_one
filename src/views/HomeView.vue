@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <div class="h_container" v-if="none !== 'none'">
+        <header v-if="none !== 'none'">
             <component :is="getHeader" />
-        </div>
-        <v-main>
-            <v-container>
+        </header>
+        <v-main class="contents">
+            <v-content class="mx-auto">
                 <router-view />
-            </v-container>
+            </v-content>
         </v-main>
-        <div class="f_container" v-if="footerNone !== 'none'">
+        <v-footer app v-if="footerNone !== 'none'">
             <component :is="getFooter" />
-        </div>
+        </v-footer>
     </div>
 </template>
 
@@ -60,11 +60,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-// @media screen and (max-width:1920px) {
-//     .container{
-//         max-width: 1200px;
-//         margin: 0 auto;
-//     }
-// }
+header{
+    // height: 60px;
+    color: #fff;
+    background: #ef4423;
+}
+.contents{
+    background: lemonchiffon;
+    height: 1000px;
+}
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: lavenderblush;
+}
 </style>
