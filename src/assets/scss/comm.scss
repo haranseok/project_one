@@ -8,3 +8,23 @@ h3{
 .mx-auto{
     margin:  0 auto;
 }
+
+.cp{
+    cursor: pointer;
+}
+
+/* layout */
+.max-w{
+    max-width: 800px;
+}
+.v-flex{
+    display: flex;
+}
+.v-jcsb{
+    display: flex;
+    justify-content: space-between;
+}
+
+.aic{
+    align-items: center;
+}

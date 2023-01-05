@@ -1,6 +1,6 @@
 <template>
     <v-card class="card_box">
-        <div class="login_header">
+        <div class="login_header v-jcsb">
             <p>metakingz admin</p>
             <img :src="img" alt="">
         </div>
@@ -50,7 +50,7 @@ export default {
     methods: {
         loginSend(){
             if(this.login.id === this.user.id && this.login.pw === this.user.pw){
-                this.$router.push("/home/subview")
+                this.$router.push("/main")
             }
         }
     },
@@ -68,8 +68,6 @@ export default {
     min-width: 300px;
     margin: 0 auto;
     .login_header{
-        display: flex;
-        justify-content: space-between;
         height: 60px;
         color: #fff;
         background: #e83d09;

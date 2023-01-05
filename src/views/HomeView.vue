@@ -3,8 +3,8 @@
         <header v-if="none !== 'none'">
             <component :is="getHeader" />
         </header>
-        <v-main class="contents">
-            <v-content class="mx-auto">
+        <v-main class="contents mx-auto max-w">
+            <v-content>
                 <router-view />
             </v-content>
         </v-main>
@@ -61,13 +61,11 @@ export default {
 
 <style lang="scss" scoped>
 header{
-    // height: 60px;
     color: #fff;
     background: #ef4423;
 }
 .contents{
-    background: lemonchiffon;
-    height: 1000px;
+    height: calc(100vh - (60px));
 }
 footer{
     width: 100%;

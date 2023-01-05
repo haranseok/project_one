@@ -21,4 +21,3 @@ const app = createApp(App);
     Store.dispatch('setFooterType', type)
   }
   
-  window.Kakao.init("6bc73ac4cd87fccca265223e299b8752");

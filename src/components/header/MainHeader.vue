@@ -1,22 +1,47 @@
 <template>
-    <v-container class="h_box mx-auto">
-        <img :src="img" alt="">
-        <nav>
-            <ul>
-                <li v-for="(nav, index) in navList" 
-                    :key="index"
-                    @click="currentNav($event)">
-                    {{ nav }}
-                    <ul class="subMenu">
-                        <li></li>
-                    </ul>
-                </li>
-            </ul>
+    <v-content class="h_box mx-auto max-w v-jcsb">
+        <img :src="logoImg" alt="logo"
+             class="logo">
+        <nav v-if="navShow" 
+            :class="this.navShow = true ?  'action' : ''">
+            <div class="nav_box">
+                <div class="arrow">
+                    <v-icon 
+                        @click="this.navShow = false"
+                        class="left"
+                    >mdi-chevron-left</v-icon>
+                </div>
+                <ul>
+                    <li v-for="(nav, index) in navList" 
+                        :key="index"
+                        class="cp nav_list"
+                        @click="currentNav( current = index)">
+                        {{ nav }}
+                        <ul class="subMenu" 
+                            v-if="index === 1 || index === 2 ? 
+                            this.sub = true : this.sub = false"
+                        >
+                            <div v-if="index == this.current">
+                                <li v-for="(sub, i) in subList" :key="i"> {{ sub }} </li>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <div>
-            icon
+        <div class="icon_box">
+            <v-icon 
+                class="cp menu"
+                @click="this.navShow = !this.navShow">mdi-menu</v-icon>
+            <v-icon class="cp user_icon"
+                @click="this.none = !this.none">
+                mdi-account-heart
+            </v-icon>
+            <ul v-show="none" class="logout">
+                <li class="cp" @click="Logout">로그아웃</li>
+            </ul>
         </div>
-    </v-container>
+    </v-content>
 </template>
 
 <script>
@@ -24,13 +49,38 @@ export default {
     name:'MainHeader',
     data(){
         return{
-            img: require('@/assets/image/logo.png'),
-            navList: ['인증','스냅샷','행사','혜택','관리자 계정','관리자 혜택 설정']
+            logoImg: require('@/assets/image/logo.png'),
+            navList: ['스냅샷','행사','혜택','관리자 계정','관리자 혜택 설정'],
+            subList: [],
+            sub : false,
+            navShow: false,
+            none: false,
+            current : '',
         }
     },
     methods: {
-        currentNav(event){
-            console.log(event)
+        Logout() {
+            this.$router.push('/home');
+        },
+        currentNav(e){
+            switch(e) {
+                case 0 : 
+                this.$router.push('/snapshot');
+                this.navShow = false;
+                break;
+                case 1 :
+                this.subList = ['행사 등록','초청자 등록'] 
+                break;
+                case 2 : 
+                this.subList = ['구매 혜택', '등급 혜택', '보유 혜택'] 
+                break;
+                case 3 : 
+                this.$router.push('/snapshot');
+                break;
+                case 4 : 
+                this.$router.push('/snapshot');
+                break;
+            }
         }
     }
 }
@@ -38,22 +88,76 @@ export default {
 
 <style lang="scss" scoped>
 .h_box{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 30%;
     line-height: 3.5;
-    img{
-        width: 8%;
+    .logo{
+        width: 15%;
+        z-index: 1;
     }
 }
 
+.user_icon, .menu{
+    margin: 0 10px;
+}
+
 nav{
-    ul{
-        display: flex;
-        li{
-            margin: 0 5px;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    overflow: hidden;
+    z-index: 99;
+    color: #ef4423;
+    background: rgba(0,0,0,0.5);
+    .nav_box{
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        background: #fff;
+        .left{
+            padding: 0 10px;
+            font-size: 25px;
+        }
+        ul{
+            li{
+                padding: 0 10px;
+                font-weight: bold;
+                &:hover{
+                    transition: 0.5s;
+                    background: rgb(239, 70, 37,0.2);
+                }
+            }
         }
     }
 }
+
+nav.action{
+    right: 0;
+    z-index: 999;
+}
+
+.icon_box{
+    position: relative;
+    .logout{
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        top: 70%;
+        left: 30%;
+        line-height: 3;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px 0.5px rgba(0,0,0,0.3);
+        color: #000;
+        font-size: 0.7rem;
+        text-align: center;
+        li{
+            font-weight: bold;
+        }
+    }
+}
+
 </style>
