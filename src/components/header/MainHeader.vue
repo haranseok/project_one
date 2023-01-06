@@ -15,14 +15,15 @@
                     <li v-for="(nav, index) in navList" 
                         :key="index"
                         class="cp nav_list"
-                        @click="currentNav( current = index)">
+                        @click="currentNav( current = index )">
                         {{ nav }}
                         <ul class="subMenu" 
                             v-if="index === 1 || index === 2 ? 
                             this.sub = true : this.sub = false"
                         >
                             <div v-if="index == this.current">
-                                <li v-for="(sub, i) in subList" :key="i"> {{ sub }} </li>
+                                <li v-for="(sub, i) in subList" :key="i"
+                                    @click="pagePush(sub)"> {{ sub }} </li>
                             </div>
                         </ul>
                     </li>
@@ -69,10 +70,10 @@ export default {
                 this.navShow = false;
                 break;
                 case 1 :
-                this.subList = ['행사 등록','초청자 등록'] 
+                this.subList = ['행사 등록','초청자 등록'];
                 break;
                 case 2 : 
-                this.subList = ['구매 혜택', '등급 혜택', '보유 혜택'] 
+                this.subList = ['구매 혜택', '등급 혜택', '보유 혜택']; 
                 break;
                 case 3 : 
                 this.$router.push('/snapshot');
@@ -80,6 +81,19 @@ export default {
                 case 4 : 
                 this.$router.push('/snapshot');
                 break;
+            }
+        },
+        pagePush(e){
+            if(e === '행사 등록'){
+                console.log('행사 등록')
+            }else if(e === '초청자 등록'){
+                console.log('초청자 등록')
+            }else if(e === '구매 혜택'){
+                console.log('구매 혜택')
+            }else if(e === '등급 혜택'){
+                console.log('등급 혜택')
+            }else{
+                console.log('보유 혜택')
             }
         }
     }
@@ -93,7 +107,6 @@ export default {
     line-height: 3.5;
     .logo{
         width: 15%;
-        z-index: 1;
     }
 }
 
@@ -112,7 +125,7 @@ nav{
     color: #ef4423;
     background: rgba(0,0,0,0.5);
     .nav_box{
-        width: 50%;
+        width: 30%;
         height: 100%;
         position: absolute;
         right: 0;
@@ -159,5 +172,17 @@ nav.action{
         }
     }
 }
-
+@media all and (max-width: 480px) {
+    .h_box{
+        .logo{
+            width: 25%;
+            margin-left: 5%;
+        }
+    }
+    nav{
+        .nav_box{
+            width: 100%;
+        }
+    }
+}
 </style>

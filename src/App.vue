@@ -16,4 +16,8 @@ export default {
 }
 </script>
 <style lang="scss">
+.v-application{
+    overflow: hidden;
+}
+
 </style>

@@ -9,7 +9,8 @@
                 v-model="login.id"
                 label="id"
                 color="deep-orange"
-                :rules="idrules" />
+                :rules="idrules"
+            />
             <v-text-field
                 v-model="login.pw"
                 color="deep-orange"
@@ -17,6 +18,7 @@
                 :pwrules="[pwrules.required, pwrules.min]"
                 :type="show ? 'text' : 'password'"
                 label="password"
+                @keydown.enter="loginSend"
                 @click:append="show = !show" />
             <v-btn class="sendBtn" @click="loginSend">login</v-btn>
         </v-container>        
@@ -50,7 +52,7 @@ export default {
     methods: {
         loginSend(){
             if(this.login.id === this.user.id && this.login.pw === this.user.pw){
-                this.$router.push("/main")
+                this.$router.push('/main')
             }
         }
     },

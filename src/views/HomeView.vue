@@ -60,12 +60,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 header{
     color: #fff;
     background: #ef4423;
 }
 .contents{
-    height: calc(100vh - (60px));
+    height: calc(100vh - (60px + 30px));
 }
 footer{
     width: 100%;
