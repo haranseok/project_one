@@ -52,7 +52,7 @@ export default {
     methods: {
         loginSend(){
             if(this.login.id === this.user.id && this.login.pw === this.user.pw){
-                this.$router.push('/main')
+                this.$router.push('/main/qrhome')
             }
         }
     },

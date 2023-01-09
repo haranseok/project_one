@@ -23,4 +23,11 @@ export default {
     font-size: 0.8rem;
     color: #999;
 }
+
+@media all and (max-width:480px) {
+ .f_box{
+    padding: 3%;
+ }
+    
+}
 </style>

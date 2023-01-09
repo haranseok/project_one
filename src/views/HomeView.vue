@@ -1,60 +1,36 @@
 <template>
     <div class="container">
-        <header v-if="none !== 'none'">
-            <component :is="getHeader" />
+        <header>
+            <Headers />
         </header>
         <v-main class="contents mx-auto max-w">
             <v-content>
                 <router-view />
             </v-content>
         </v-main>
-        <v-footer app v-if="footerNone !== 'none'">
-            <component :is="getFooter" />
+        <v-footer>
+            <Footers />
         </v-footer>
     </div>
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
-import Headers from "@/components/header/router";
-import Footers from "@/components/footer/router";
+import Headers from "@/components/header/MainHeader";
+import Footers from "@/components/footer/MainFooter";
+
 export default {
   name: 'HomeView',
   data(){
     return {
-        headerKey: -1,
-        footerKey: -1,
     }
   },
   computed: {
-        getConfigHeaderType() {
-            return this.$store.getters.getHeaderType;
-        },
-        getConfigFooterType() {
-            return this.$store.getters.getFooterType;
-        },
-        getHeader() {
-            if (this.headerKey !== -1) {
-                return defineAsyncComponent(Headers[this.headerKey].component);
-            }
-            return "";
-        },
-        getFooter() {
-            if(this.footerKey !== -1) {
-                return defineAsyncComponent(Footers[this.footerKey].component);
-            }
-            return "";
-        }
     },
-    watch: {
-        getConfigHeaderType(val) {
-            this.headerKey = val;
-        },
-        getConfigFooterType(val) {
-            this.footerKey = val;
-        }
+  watch: {
     },
   components: {
+    Headers,
+    Footers
   },
 };
 </script>
@@ -64,9 +40,6 @@ export default {
 header{
     color: #fff;
     background: #ef4423;
-}
-.contents{
-    height: calc(100vh - (60px + 30px));
 }
 footer{
     width: 100%;

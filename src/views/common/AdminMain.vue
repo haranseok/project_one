@@ -1,33 +1,22 @@
 <template>
-        <div class="QR_box absolute mx-auto max-w">
-            <v-hover v-slot="{ hover }"
-                open-delay="200">
-                <v-card class="card cp" 
-                    :elevation="hover ? 16 : 2"
-                    :class="{'on-hover' : hover}">
-                    <v-icon class="icon_holder">mdi-clipboard-account</v-icon>
-                    <span>홀더 qr</span>
-                </v-card>
-            </v-hover>
-            <v-hover>
-                <v-card class="card cp">
-                    <img :src="icon.coupon" alt="쿠폰" class="coupon">
-                    <span>쿠폰 qr</span>
-                </v-card>
-            </v-hover>
-            <v-hover>
-                <v-card class="card cp">
-                    <img :src="icon.gift" alt="이벤트">
-                    <span>행사 qr</span>
-                </v-card>
-            </v-hover>
-            <v-hover>
-                <v-card class="card cp">
-                    <img :src="icon.nft" alt="nft아이콘">
-                    <span>nft 전송</span>
-                </v-card>
-            </v-hover>
-        </div>
+    <div class="QR_box absolute mx-auto max-w">
+        <v-card class="card cp"> 
+            <v-icon class="icon_holder">mdi-clipboard-account</v-icon>
+            <span>홀더 qr</span>
+        </v-card>
+        <v-card class="card cp">
+            <img :src="icon.coupon" alt="쿠폰" class="coupon">
+            <span>쿠폰 qr</span>
+        </v-card>
+        <v-card class="card cp">
+            <img :src="icon.gift" alt="이벤트">
+            <span>행사 qr</span>
+        </v-card>
+        <v-card class="card cp">
+            <img :src="icon.nft" alt="nft아이콘">
+            <span>nft 전송</span>
+        </v-card>
+    </div>
 </template>
 
 <script>
@@ -59,7 +48,7 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 15% 5%;
+    padding: 10% 5%;
     box-sizing: border-box;
     .card{
         display: flex;
@@ -89,8 +78,14 @@ export default {
     }
 }
 
-
 @media all and (max-width: 480px) {
-
+    .QR_box{
+        .card{
+            min-height: 100px;
+            .coupon{
+                margin: 20% 0;
+            }
+        }
+    }
 }
 </style>

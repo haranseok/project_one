@@ -3,6 +3,7 @@
         <img :src="logoImg" alt="logo"
              class="logo">
         <nav v-if="navShow" 
+        @click.self="this.navShow = false"
             :class="this.navShow = true ?  'action' : ''">
             <div class="nav_box">
                 <div class="arrow">

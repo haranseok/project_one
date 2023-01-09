@@ -1,23 +1,24 @@
 <template>
   <v-app>
-    <HomeView />
+    <router-view />
   </v-app>
 </template>
 
 <script>
-import HomeView from '@/views/HomeView.vue';
 
 export default {
     name: "App",
     data: () => ({
     //
     }),
-    components: { HomeView }
+    components: { 
+
+    }
 }
 </script>
 <style lang="scss">
-.v-application{
-    overflow: hidden;
-}
+// .v-application{
+//     overflow: hidden;
+// }
 
 </style>
