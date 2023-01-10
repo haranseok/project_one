@@ -31,8 +31,6 @@ export default {
         }
     },
     created() {
-        this.setHeader(0);
-        this.setFooter(0);
     }
 }
 </script>

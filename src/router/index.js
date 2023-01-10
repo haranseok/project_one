@@ -10,26 +10,26 @@ const router = createRouter({
         },
         {
             path: '/login',
-            name: 'login',
-            component: () => import('@/views/common/LoginPage')
+            name: 'Login',
+            component: () => import('@/views/common/LoginPage'),
         },
         {
             path: '/main',
-            name: 'Homeview',
+            name: 'HomeView',
             component: () => import('@/views/HomeView'),
             children: [
                 {
                     path: 'qrhome',
                     name: 'QRhome',
-                    component: () => import('@/views/common/AdminMain')
+                    component: () => import('@/views/common/AdminMain'),
                 },
                 {
                     path: "snapshot",
                     name: "SnapShot",
-                    component: () => import("@/views/snapshot/SnapShot")
+                    component: () => import("@/views/snapshot/SnapShot"),
                 }
             ]
-        }
+        },
     ]
 });
 

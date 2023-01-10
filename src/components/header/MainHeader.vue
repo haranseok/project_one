@@ -67,7 +67,7 @@ export default {
         currentNav(e){
             switch(e) {
                 case 0 : 
-                this.$router.push('/snapshot');
+                this.$router.push('/main/snapshot');
                 this.navShow = false;
                 break;
                 case 1 :
@@ -77,10 +77,10 @@ export default {
                 this.subList = ['구매 혜택', '등급 혜택', '보유 혜택']; 
                 break;
                 case 3 : 
-                this.$router.push('/snapshot');
+                this.$router.push('/main/snapshot');
                 break;
                 case 4 : 
-                this.$router.push('/snapshot');
+                this.$router.push('/main/snapshot');
                 break;
             }
         },
@@ -125,6 +125,7 @@ nav{
     z-index: 99;
     color: #ef4423;
     background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
     .nav_box{
         width: 30%;
         height: 100%;

@@ -47,7 +47,6 @@ export default {
         },
     }),
     created(){
-        this.setHeader(-1)
     },
     methods: {
         loginSend(){
