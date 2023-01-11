@@ -1,9 +1,14 @@
 // vuetify 에서 제공하는 최상위 scss가 설정이 되어있어서 body에 적용하는 것은 적용이 안됨...
 @import "reset.scss";
 
+/* common */
 
-.mx-auto{
+.m0-auto{
     margin:  0 auto;
+}
+
+.p4p {
+    padding: 4%;
 }
 
 .cp{
@@ -11,6 +16,7 @@
 }
 
 /* layout */
+
 .max-w{
     max-width: 800px;
 }
@@ -20,6 +26,10 @@
 .v-jcsb{
     display: flex;
     justify-content: space-between;
+}
+.v-jcsa{
+    display: flex;
+    justify-content: space-around;
 }
 
 .aic{
