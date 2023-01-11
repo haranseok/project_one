@@ -1,5 +1,5 @@
 <template>
-    <v-content class="h_box mx-auto max-w v-jcsb">
+    <v-content class="h_box m0-auto max-w v-jcsb">
         <img :src="logoImg" alt="logo"
              class="logo">
         <nav v-if="navShow" 
@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         Logout() {
-            this.$router.push('/home');
+            this.$router.push('/login');
         },
         currentNav(e){
             switch(e) {
@@ -78,9 +78,11 @@ export default {
                 break;
                 case 3 : 
                 this.$router.push('/main/snapshot');
+                this.navShow = false;
                 break;
                 case 4 : 
                 this.$router.push('/main/snapshot');
+                this.navShow = false;
                 break;
             }
         },
@@ -138,13 +140,16 @@ nav{
         }
         ul{
             li{
-                padding: 0 10px;
+                padding: 0 30px;
                 font-weight: bold;
-                &:hover{
-                    transition: 0.5s;
-                    background: rgb(239, 70, 37,0.2);
-                }
             }
+            .nav_list{
+                &:hover{
+                    transition: 0.3s;
+                    border-left: 8px solid #ef4423;
+                    background: rgba(244, 88, 57, 0.1);
+                }
+            }                
         }
     }
 }

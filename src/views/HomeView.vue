@@ -3,7 +3,7 @@
         <header>
             <Headers />
         </header>
-        <v-main class="contents mx-auto max-w">
+        <v-main class="contents m0-auto max-w p4p">
             <v-content>
                 <router-view />
             </v-content>

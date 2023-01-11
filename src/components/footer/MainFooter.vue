@@ -1,5 +1,5 @@
 <template>
-    <v-container class="f_box mx-auto max-w">
+    <v-container class="f_box m0-auto max-w">
         Copyright© Secret Town. All rights reserved.
     </v-container>
 </template>

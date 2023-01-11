@@ -1,5 +1,5 @@
 <template>
-    <div class="QR_box absolute mx-auto max-w">
+    <div class="QR_box absolute m0-auto max-w">
         <v-card class="card cp"> 
             <v-icon class="icon_holder">mdi-clipboard-account</v-icon>
             <span>홀더 qr</span>

@@ -30,6 +30,18 @@ const router = createRouter({
                 }
             ]
         },
+        {
+            path: "/study",
+            name: "study",
+            component: () => import("@/components/layout/StudyLayout"),
+            children: [
+                {
+                    path: "chartLayout",
+                    name: "Chart",
+                    component: () => import("@/views/Study/ChartLayout")
+                }
+            ]
+        }
     ]
 });
 
