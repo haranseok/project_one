@@ -38,7 +38,7 @@ const router = createRouter({
                 {
                     path: "chartLayout",
                     name: "Chart",
-                    component: () => import("@/views/Study/ChartLayout")
+                    component: () => import("@/views/Study/ChartLayout.vue")
                 }
             ]
         }

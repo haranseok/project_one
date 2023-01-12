@@ -1,24 +1,15 @@
 <template>
-    <div>
-        <h1>chart vue</h1>
-        <Bar />
-    </div>
+    <BarChart />
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
+import BarChart from '@/components/chart/BarChart.vue';
 
 export default {
-    data() {
-        return {
-
-        }
-    },
-    components: {
-        Bar,
-    }
+    components: { BarChart }
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
+
 </style>
