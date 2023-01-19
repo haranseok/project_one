@@ -16,11 +16,22 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
     components: { Bar },
+    // props: {
+    //     chartData: {
+    //         type: Object,
+    //         required: true
+    //     },
+    //     chartOptions: {
+    //         type: Object,
+    //         default: () => {}
+    //     }
+    // }
     data() {
         return {
             chartData: {
                 labels: [ 'January', 'February', 'March' ],
                 datasets: [ { 
+                    label:'month',
                     data: [40, 20, 12],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -37,7 +48,7 @@ export default {
 // https://vue-chartjs.org/guide/#chart-with-local-data vue data
 </script>
 
-<style>
+<style lang="scss" scoped>
 .chart_box{
     width: 500px;
 }

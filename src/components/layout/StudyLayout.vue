@@ -5,6 +5,9 @@
             <router-link to="/study/chartlayout">            
                 <li>chart</li>
             </router-link>
+            <router-link to="/study/datepickerLayout">
+                <li>datepicker</li>
+            </router-link>
         </ul>
         <router-view></router-view>
     </div>
@@ -30,8 +33,10 @@ h1{
 ul{
     width: 50%;
     padding: 5%;
+    display: flex;
     li{
         font-size: 1.2rem;
+        margin: 0 5px;
     }
 }
 </style>

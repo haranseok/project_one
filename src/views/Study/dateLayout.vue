@@ -1,8 +1,5 @@
 <template>
-    <div class="chart_box">
-        <h2>도넛 차트</h2>
-        
-    </div>
+  <div>data</div>
 </template>
 
 <script>

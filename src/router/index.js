@@ -39,7 +39,13 @@ const router = createRouter({
                     path: "chartLayout",
                     name: "Chart",
                     component: () => import("@/views/Study/ChartLayout.vue")
+                },
+                {
+                    path: "datepickerLayout",
+                    name: "dateLayout",
+                    component: () => import("@/views/Study/dateLayout.vue")
                 }
+
             ]
         }
     ]
